@@ -1,0 +1,16 @@
+print("Exemplo de manipulação de bits")
+from clientemodbus import ClienteMODBUS
+c = ClienteMODBUS('localhost',502)
+c.conectar()
+endereco = 2000
+print("Bits atuais:", c.holding_register_bits(endereco))
+print("Escrevendo bit 4 como 1")
+c.write_bits(endereco, 4, 1)
+print("Bits atuais:", c.holding_register_bits(endereco))
+print("Escrevendo bit 10 como 1")
+c.write_bits(endereco, 10, 1)
+print("Bits atuais:", c.holding_register_bits(endereco))
+print("Escrevendo bit 7 como 1")
+c.write_bits(endereco, 7, 1)
+print("Bits atuais:", c.holding_register_bits(endereco))
+c._cliente.close()
